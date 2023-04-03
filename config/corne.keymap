@@ -22,7 +22,7 @@
             compatible = "zmk,behavior-mod-morph";
             label = "SMART_SHIFT";
             bindings =
-                <&sk LSHFT>,
+                <&sticky_quick_release LSHFT>,
                 <&caps_word>;
 
             #binding-cells = <0>;
@@ -67,6 +67,14 @@
                 <&kp LC(DEL)>;
 
             tapping-term-ms = <150>;
+        };
+        sticky_quick_release: sticky_quick_release {
+            compatible = "zmk,behavior-sticky-key";
+            label = "STICKY_QUICK_RELEASE";
+            bindings = <&kp>;
+            #binding-cells = <1>;
+            quick-release;
+            release-after-ms = <200>;
         };
     };
 
