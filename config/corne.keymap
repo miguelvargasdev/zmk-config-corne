@@ -35,6 +35,8 @@
             bindings =
                 <&kp LEFT>,
                 <&kp LC(LEFT)>;
+
+            tapping-term-ms = <75>;
         };
         move_word_right: move_word_right {
             compatible = "zmk,behavior-tap-dance";
@@ -43,14 +45,18 @@
             bindings =
                 <&kp RIGHT>,
                 <&kp LC(RIGHT)>;
+
+            tapping-term-ms = <75>;
         };
         smart_backspace: smart_backspace {
             compatible = "zmk,behavior-tap-dance";
             label = "SMART_BACKSPACE";
             #binding-cells = <0>;
             bindings =
-                <&kp BACKSPACE>,
+                <&lt 1 BACKSPACE>,
                 <&kp LC(BACKSPACE)>;
+
+            tapping-term-ms = <75>;
         };
         smart_delete: smart_delete {
             compatible = "zmk,behavior-tap-dance";
@@ -59,6 +65,8 @@
             bindings =
                 <&kp DEL>,
                 <&kp LC(DEL)>;
+
+            tapping-term-ms = <75>;
         };
     };
 
