@@ -44,13 +44,21 @@
                 <&kp RIGHT>,
                 <&kp LC(RIGHT)>;
         };
+        smart_backspace: smart_backspace {
+            compatible = "zmk,behavior-tap-dance";
+            label = "SMART_BACKSPACE";
+            #binding-cells = <0>;
+            bindings =
+                <&kp BACKSPACE>,
+                <&kp LC(BACKSPACE)>;
+        };
         smart_delete: smart_delete {
             compatible = "zmk,behavior-tap-dance";
             label = "SMART_DELETE";
             #binding-cells = <0>;
             bindings =
-                <&kp BACKSPACE>,
-                <&kp LC(BACKSPACE)>;
+                <&kp DEL>,
+                <&kp LC(DEL)>;
         };
     };
 
@@ -65,10 +73,10 @@
             //                    | GUI | LWR | SPC |   | ENT | RSE  | ALT |
 
             bindings = <
-  &kp ESC  &kp Q  &kp W         &kp E         &kp R        &kp T          &kp Y          &kp U      &kp I    &kp O     &kp P   &kp LA(TAB)
-  &kp TAB  &kp A  &kp S         &kp D         &kp F        &kp G          &kp H          &kp J      &kp K    &kp L  &kp SEMI  &kp LEFT_WIN
-&kp LCTRL  &kp Z  &kp X         &kp C         &kp V        &kp B          &kp N          &kp M  &kp COMMA  &kp DOT  &kp FSLH  &kp LEFT_WIN
-                         &kp LEFT_ALT  &smart_shift  &lt 3 SPACE    &lt 2 ENTER  &smart_delete    &kp DEL
+  &kp ESC  &kp Q  &kp W         &kp E         &kp R        &kp T          &kp Y             &kp U          &kp I    &kp O     &kp P        &kp LA(TAB)
+  &kp TAB  &kp A  &kp S         &kp D         &kp F        &kp G          &kp H             &kp J          &kp K    &kp L  &kp SEMI       &kp LEFT_WIN
+&kp LCTRL  &kp Z  &kp X         &kp C         &kp V        &kp B          &kp N             &kp M      &kp COMMA  &kp DOT  &kp FSLH  &kp RIGHT_CONTROL
+                         &kp LEFT_ALT  &smart_shift  &lt 3 SPACE    &lt 2 ENTER  &smart_backspace  &smart_delete
             >;
         };
 
@@ -80,10 +88,10 @@
             //                    | GUI |     | SPC |   | ENT |     | ALT |
 
             bindings = <
-&none  &none  &none     &none  &none      &none      &none  &kp N7    &kp N8  &kp N9  &none  &none
-&none  &none  &none     &none  &none      &none      &none  &kp N4    &kp N5  &kp N6  &none  &none
-&none  &none  &none     &none  &none      &none     &kp N0  &kp N1    &kp N2  &kp N3  &none  &none
-                     &kp LGUI  &none  &kp SPACE    &kp RET   &none  &kp RALT
+&trans  &none  &kp F7  &kp F8  &kp F9  &kp F12     &none  &kp N7  &kp N8  &kp N9  &none  &trans
+&trans  &none  &kp F4  &kp F5  &kp F6  &kp F11     &none  &kp N4  &kp N5  &kp N6  &none  &trans
+&trans  &none  &kp F1  &kp F2  &kp F3  &kp F10    &kp N0  &kp N1  &kp N2  &kp N3  &none  &trans
+                       &trans  &trans   &trans    &trans  &trans  &trans
             >;
         };
 
@@ -95,10 +103,10 @@
             //                    | GUI |     | SPC |   | ENT |     | ALT |
 
             bindings = <
-&none  &none  &none  &none  &none  &none    &none            &none    &kp UP             &none  &none  &none
-&none  &none  &none  &none  &none  &none    &none  &move_word_left  &kp DOWN  &move_word_right  &none  &none
-&none  &none  &none  &none  &none  &none    &none            &none     &none             &none  &none  &none
-                     &none  &none  &none    &none            &none     &none
+&trans  &none            &none    &kp UP             &none   &none       &none            &none    &kp UP             &none    &none  &none
+&trans  &none  &move_word_left  &kp DOWN  &move_word_right   &none    &kp HOME  &move_word_left  &kp DOWN  &move_word_right  &kp END  &none
+&trans  &none            &none     &none             &none   &none       &none            &none     &none             &none    &none  &none
+                                  &trans            &trans  &trans      &trans           &trans    &trans
             >;
         };
 
@@ -106,7 +114,7 @@
             bindings = <
 &kp TILDE          &kp EXCL             &kp AT              &kp HASH             &kp DOLLAR  &kp PERCENT    &kp CARET  &kp AMPERSAND   &kp STAR              &none             &none  &none
     &none  &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS    &kp GRAVE     &kp PIPE      &kp UNDER  &kp EQUAL  &kp DOUBLE_QUOTES  &kp SINGLE_QUOTE  &none
-    &none     &kp LESS_THAN   &kp GREATER_THAN        &kp LEFT_BRACE        &kp RIGHT_BRACE    &kp LSHFT    &kp COMMA      &kp MINUS   &kp PLUS      &kp BACKSLASH         &kp SLASH  &none
+    &none     &kp LESS_THAN   &kp GREATER_THAN        &kp LEFT_BRACE        &kp RIGHT_BRACE        &none        &none      &kp MINUS   &kp PLUS      &kp BACKSLASH         &kp SLASH  &none
                                                               &trans                 &trans       &trans       &trans         &trans     &trans
             >;
         };
