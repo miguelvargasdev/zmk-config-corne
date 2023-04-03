@@ -44,6 +44,14 @@
                 <&kp RIGHT>,
                 <&kp LC(RIGHT)>;
         };
+        smart_delete: smart_delete {
+            compatible = "zmk,behavior-tap-dance";
+            label = "SMART_DELETE";
+            #binding-cells = <0>;
+            bindings =
+                <&kp BACKSPACE>,
+                <&kp LC(BACKSPACE)>;
+        };
     };
 
     keymap {
@@ -57,10 +65,10 @@
             //                    | GUI | LWR | SPC |   | ENT | RSE  | ALT |
 
             bindings = <
-  &kp ESC  &kp Q  &kp W         &kp E         &kp R        &kp T          &kp Y          &kp U      &kp I    &kp O     &kp P  &kp LA(TAB)
-  &kp TAB  &kp A  &kp S         &kp D         &kp F        &kp G          &kp H          &kp J      &kp K    &kp L  &kp SEMI      &kp SQT
-&kp LCTRL  &kp Z  &kp X         &kp C         &kp V        &kp B          &kp N          &kp M  &kp COMMA  &kp DOT  &kp FSLH      &kp ESC
-                         &kp LEFT_ALT  &smart_shift  &lt 3 SPACE    &lt 2 ENTER  &kp BACKSPACE    &kp DEL
+  &kp ESC  &kp Q  &kp W         &kp E         &kp R        &kp T          &kp Y          &kp U      &kp I    &kp O     &kp P   &kp LA(TAB)
+  &kp TAB  &kp A  &kp S         &kp D         &kp F        &kp G          &kp H          &kp J      &kp K    &kp L  &kp SEMI  &kp LEFT_WIN
+&kp LCTRL  &kp Z  &kp X         &kp C         &kp V        &kp B          &kp N          &kp M  &kp COMMA  &kp DOT  &kp FSLH  &kp LEFT_WIN
+                         &kp LEFT_ALT  &smart_shift  &lt 3 SPACE    &lt 2 ENTER  &smart_delete    &kp DEL
             >;
         };
 
@@ -87,19 +95,19 @@
             //                    | GUI |     | SPC |   | ENT |     | ALT |
 
             bindings = <
-&none  &none  &none  &none  &none  &none    &none     &none    &kp UP      &none  &none  &none
-&none  &none  &none  &none  &none  &none    &none  &kp LEFT  &kp DOWN  &kp RIGHT  &none  &none
-&none  &none  &none  &none  &none  &none    &none     &none     &none      &none  &none  &none
-                     &none  &none  &none    &none     &none     &none
+&none  &none  &none  &none  &none  &none    &none            &none    &kp UP             &none  &none  &none
+&none  &none  &none  &none  &none  &none    &none  &move_word_left  &kp DOWN  &move_word_right  &none  &none
+&none  &none  &none  &none  &none  &none    &none            &none     &none             &none  &none  &none
+                     &none  &none  &none    &none            &none     &none
             >;
         };
 
         SYM {
             bindings = <
 &kp TILDE          &kp EXCL             &kp AT              &kp HASH             &kp DOLLAR  &kp PERCENT    &kp CARET  &kp AMPERSAND   &kp STAR              &none             &none  &none
-    &none  &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS    &kp GRAVE    &kp LSHFT      &kp UNDER  &kp EQUAL  &kp DOUBLE_QUOTES  &kp SINGLE_QUOTE  &none
+    &none  &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS    &kp GRAVE     &kp PIPE      &kp UNDER  &kp EQUAL  &kp DOUBLE_QUOTES  &kp SINGLE_QUOTE  &none
     &none     &kp LESS_THAN   &kp GREATER_THAN        &kp LEFT_BRACE        &kp RIGHT_BRACE    &kp LSHFT    &kp COMMA      &kp MINUS   &kp PLUS      &kp BACKSLASH         &kp SLASH  &none
-                                                               &none                  &none        &none        &none          &none      &none
+                                                              &trans                 &trans       &trans       &trans         &trans     &trans
             >;
         };
 
